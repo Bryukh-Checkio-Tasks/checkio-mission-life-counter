@@ -1,44 +1,89 @@
 <p>
-    <i>( Describe task in general )</i>
+    <a href="http://en.wikipedia.org/wiki/Conway's_Game_of_Life">The Game of Life</a>,
+    also known simply as Life, is a "game" or a cellular automaton
+    devised by the British mathematician John Horton Conway in 1970.
+
+    The "game" is a zero-player game, meaning that its evolution is determined by its initial state,
+    requiring no further input. One interacts with the Game of Life by creating an initial
+    configuration and observing how it evolves or, for advanced players, by creating patterns with
+    particular properties.
 </p>
 
 <p>
-    Sum two passed ints
+    The universe of the Game of Life is an infinite two-dimensional orthogonal grid of square cells,
+    each of which is in one of two possible states, alive or dead. Every cell interacts with its
+    eight neighbours, which are the cells that are horizontally, vertically, or diagonally adjacent.
+    At each step in time, the following transitions occur:<br>
+
+    - Any live cell with fewer than two live neighbours dies, as if caused by under-population.<br>
+    - Any live cell with two or three live neighbours lives on to the next generation.<br>
+    - Any live cell with more than three live neighbours dies, as if by overcrowding.<br>
+    - Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.<br>
+    <br>
+    The initial pattern (or 0th step) constitutes the seed of the system.
+    The first generation is created by applying the above rules simultaneously
+    to every cell in the seed—births and deaths occur simultaneously,
+    and the discrete moment at which this happens is sometimes called a tick
+    (in other words, each generation is a pure function of the preceding one).
+    The rules continue to be applied repeatedly to create further generations.
+</p>
+<p>
+    In this mission you should count how many live cell will be on the grind at the Nth tick.
+    You are given an initial position of the grid as a matrix and a number of the tick <strong>N</strong>.
+    The matrix is represented as a tuple of tuples where 1 is a live cell and 0 is a dead cell.
+    Don't forget the grid is infinite.
 </p>
 
 <p style="text-align: center;">
-    <img class="for_info_only" title="example" src="{{MEDIA}}example.png" alt="example" width="392px"/>
-    <img class="for_editor_only" title="example" src="{{MEDIA}}example.png" alt="example" width="380px"/>
-</p>
-
-<p><i>( Explain input and output values )</i></p>
-<p>
-    <strong>Input: </strong> Two arguments. Both are int
+    <img class="for_info_only" title="life" src="{{MEDIA}}life.svg" alt="life"
+         style="max-width: 600px"/>
 </p>
 
 <p>
-    <strong>Output: </strong> Int. 
+    In this example the initial position will be represented as:
+</p>
+<pre>
+((0, 1, 0, 0, 0, 0, 0),
+ (0, 0, 1, 0, 0, 0, 0),
+ (1, 1, 1, 0, 0, 0, 0),
+ (0, 0, 0, 0, 0, 1, 1),
+ (0, 0, 0, 0, 0, 1, 1),
+ (0, 0, 0, 0, 0, 0, 0),
+ (1, 1, 1, 0, 0, 0, 0),)
+</pre>
+
+<p>
+    And if we should count live cells for the 4th step, then as we can see from the image
+    the answer is 15.
+        </p>
+
+<p>
+    <strong>Input: </strong> Two arguments.
+    An initial state as a tuple of tuples with integers (0 or 1) and
+    a number for the tick (N) as an integer.
+
 </p>
 
+<p>
+    <strong>Output: </strong> The number of live cell for the Nth tick as an integer.
+</p>
 
 
 <div class="for_info_only">
-    <p><i>( Put some usage examples )</i></p>
     <p>
         <strong>Example:</strong>
     </p>
     <pre class="brush: python">
-checkio(3, 2) == 5
-checkio(5, 7) == 12
+        <!--TODO-->
     </pre>
 </div>
 
 <p class="for_info_only">
     <strong>How it is used: </strong>
-    <i>(Here you can explain how it can be used in development and what is usage of this.)</i>
+    <!--TODO-->
 </p>
 
 <p>
     <strong>Precondition:</strong>
-    <i>Constraints for Input</i>
+    <!--TODO-->
 </p>
