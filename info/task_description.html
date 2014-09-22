@@ -74,16 +74,26 @@
         <strong>Example:</strong>
     </p>
     <pre class="brush: python">
-        <!--TODO-->
+life_counter(((0, 1, 0, 0, 0, 0, 0),
+              (0, 0, 1, 0, 0, 0, 0),
+              (1, 1, 1, 0, 0, 0, 0),
+              (0, 0, 0, 0, 0, 1, 1),
+              (0, 0, 0, 0, 0, 1, 1),
+              (0, 0, 0, 0, 0, 0, 0),
+              (1, 1, 1, 0, 0, 0, 0)), 4) == 15
     </pre>
 </div>
 
 <p class="for_info_only">
     <strong>How it is used: </strong>
-    <!--TODO-->
+    This game is an example of a cellular automaton. It's a good practice for modeling.
+    You can add graphics and will get your own "Life" game.
 </p>
 
 <p>
     <strong>Precondition:</strong>
-    <!--TODO-->
+    0 &lt; tick_n &lt; 200<br>
+    3 &le; len(state) &le; 20<br>
+    all(len(row) == len(state) for row in state)<br>
+
 </p>
