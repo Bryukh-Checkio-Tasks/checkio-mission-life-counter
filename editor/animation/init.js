@@ -40,10 +40,14 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210', 'snap.svg_030'],
             }
 
             //YOUR FUNCTION NAME
-            var fname = 'checkio';
+            var fname = 'life_counter';
 
-            var checkioInput = data.in;
-            var checkioInputStr = fname + '(' + JSON.stringify(checkioInput) + ')';
+            var checkioInput = data.in || [[[0, 1, 0], [0, 0, 1], [1, 1, 1]], 50];
+            var checkioInputStr = fname + '((';
+            for (var i = 0; i < checkioInput[0].length; i++) {
+                checkioInputStr += "<br>    " + JSON.stringify(checkioInput[0][i]).replace("[", "(").replace("]", ")") + ",";
+            }
+            checkioInputStr += "), " + String(checkioInput[1]) + ")";
 
             var failError = function (dError) {
                 $content.find('.call').html(checkioInputStr);

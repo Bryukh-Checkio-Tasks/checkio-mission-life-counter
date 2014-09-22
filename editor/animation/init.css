@@ -34,7 +34,7 @@
 .animation-content{
     background-color: #dfe8f7;
     color: #696969;
-    font-family: Verdana, Arial, helvetica, sans-serif;;
+    font-family: Consolas, monospace !important;
     font-size: 15px;
     width: 100%;
 }
