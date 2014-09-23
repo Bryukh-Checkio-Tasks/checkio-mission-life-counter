@@ -89,7 +89,10 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210', 'snap.svg_030'],
                 var result = data.ext["result"];
                 var result_addon = data.ext["result_addon"];
 
-                //if you need additional info from tests (if exists)
+                if (explanation) {
+                    svg.live(checkioInput[1]);
+                }
+
                 var explanation = data.ext["explanation"];
                 $content.find('.output').html('&nbsp;Your result:&nbsp;' + JSON.stringify(userResult));
                 if (!result) {
@@ -161,27 +164,97 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210', 'snap.svg_030'],
             var paper = Raphael(dom, sizePx, sizePx);
             var center = sizePx / 2;
 
-            var grid = paper.set();
+            var circles = paper.set();
+            var grid = [];
 
             var attrRect = {"stroke": colorBlue2, "stroke-width": 1};
             var attrCircle = {"stroke": colorBlue4, "stroke-width": 1, "fill": colorBlue2};
 
             this.prepare = function (data) {
                 for (var i = -size; i < size; i++) {
-                    grid[i] = paper.set();
+                    grid[i] = [];
+                    circles[i] = paper.set();
                     for (var j = -size; j < size; j++) {
                         paper.rect(center + j * cell, center + i * cell, cell, cell).attr(
                             attrRect);
                         if (data[i] && data[i][j] === 1) {
+                            grid[i][j] = 1;
                             var c = paper.circle(center + (j + 0.5) * cell, center + (i + 0.5) * cell, cell * 0.3).attr(
                                 attrCircle);
                             c.row = i;
                             c.col = j;
-                            grid[i][j] = c;
+                            circles[i][j] = c;
+                        }
+                        else {
+                            grid[i][j] = 0;
                         }
                     }
                 }
             };
+
+            this.live = function (N) {
+                var count = 0;
+
+                var NEIGHBOURS = [
+                    [-1, -1],
+                    [-1, 0],
+                    [-1, 1],
+                    [0, 1],
+                    [0, -1],
+                    [1, -1],
+                    [1, 0],
+                    [1, 1]
+                ];
+
+                var step = 300;
+
+                (function process() {
+                    if (count > N - 1) {
+                        return false;
+                    }
+                    var newGrid = [];
+                    for (var i = -size; i < size; i++) {
+                        newGrid[i] = [];
+                        for (var j = -size; j < size; j++) {
+                            var neighs = 0;
+                            for (var n = 0; n < NEIGHBOURS.length; n++) {
+                                var ni = i + NEIGHBOURS[n][0];
+                                var nj = j + NEIGHBOURS[n][1];
+                                if (grid[ni] && grid[ni][nj]) {
+                                    neighs++;
+                                }
+                            }
+                            if (grid[i][j]) {
+                                if (neighs === 2 || neighs === 3) {
+                                    newGrid[i][j] = grid[i][j];
+                                }
+                                else {
+                                    newGrid[i][j] = 0;
+                                    circles[i][j].animate({"r": 1}, step,
+                                        callback = function () {
+                                            this.remove();
+                                        })
+                                }
+                            }
+                            else {
+                                if (neighs === 3) {
+                                    newGrid[i][j] = 1;
+                                    var c = paper.circle(center + (j + 0.5) * cell, center + (i + 0.5) * cell, 1).attr(
+                                        attrCircle);
+                                    circles[i][j] = c;
+                                    c.animate({"r": cell * 0.3}, step);
+                                }
+                            }
+                        }
+                    }
+
+                    setTimeout(function () {
+                        count++;
+                        grid = newGrid;
+                        process()
+                    }, step * 1.5);
+                })();
+            }
 
         }
 
