@@ -89,11 +89,12 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210', 'snap.svg_030'],
                 var result = data.ext["result"];
                 var result_addon = data.ext["result_addon"];
 
+                var explanation = data.ext["explanation"];
+
                 if (explanation) {
                     svg.live(checkioInput[1]);
                 }
 
-                var explanation = data.ext["explanation"];
                 $content.find('.output').html('&nbsp;Your result:&nbsp;' + JSON.stringify(userResult));
                 if (!result) {
                     $content.find('.answer').html('Right result:&nbsp;' + JSON.stringify(rightResult));
