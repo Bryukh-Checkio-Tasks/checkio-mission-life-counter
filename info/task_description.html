@@ -96,6 +96,6 @@ life_counter(((0, 1, 0, 0, 0, 0, 0),
     <strong>Precondition:</strong>
     0 &lt; tick_n &lt; 200<br>
     3 &le; len(state) &le; 20<br>
-    all(len(row) == len(state) for row in state)<br>
+    all(len(row) == len(state[0]) for row in state)<br>
 
 </p>
