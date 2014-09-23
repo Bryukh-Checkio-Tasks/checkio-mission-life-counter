@@ -50,7 +50,7 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210', 'snap.svg_030'],
             checkioInputStr += "), " + String(checkioInput[1]) + ")";
 
             var failError = function (dError) {
-                $content.find('.call').html(checkioInputStr);
+                $content.find('.call div').html(checkioInputStr);
                 $content.find('.output').html(dError.replace(/\n/g, ","));
 
                 $content.find('.output').addClass('error');
