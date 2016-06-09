@@ -1,0 +1,32 @@
+"use strict";
+function lifeCounter(marbles, step) {
+    return 0.5
+}
+
+var assert = require('assert');
+
+if (!global.is_checking) {
+    assert.equal(lifeCounter([[0, 1, 0, 0, 0, 0, 0],
+                              [0, 0, 1, 0, 0, 0, 0],
+                              [1, 1, 1, 0, 0, 0, 0],
+                              [0, 0, 0, 0, 0, 1, 1],
+                              [0, 0, 0, 0, 0, 1, 1],
+                              [0, 0, 0, 0, 0, 0, 0],
+                              [1, 1, 1, 0, 0, 0, 0]], 4), 15, "Example");
+    assert.equal(lifeCounter([[0, 1, 0, 0, 0, 0, 0],
+                              [0, 0, 1, 0, 0, 0, 0],
+                              [1, 1, 1, 0, 0, 0, 0],
+                              [0, 0, 0, 0, 0, 1, 1],
+                              [0, 0, 0, 0, 0, 1, 1],
+                              [0, 0, 0, 0, 0, 0, 0],
+                              [1, 1, 1, 0, 0, 0, 0]], 15], 14, "Little later");
+    assert.equal(lifeCounter([[0, 1, 0],
+	                          [0, 0, 1],
+	                          [1, 1, 1]], 50), 5, "Glider");
+    assert.equal(lifeCounter([[1, 1, 0, 1, 1],
+                              [1, 1, 0, 1, 1],
+                              [0, 0, 0, 0, 0],
+                              [1, 1, 0, 1, 1],
+                              [1, 1, 0, 1, 1]], 100), 16, "Stones");
+    console.log("Coding complete? Click 'Check' to review your tests and earn cool rewards!");
+}
