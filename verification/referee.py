@@ -46,7 +46,10 @@ api.add_listener(
             'python-27': cover,
             'python-3': cover
         },
-        function_name="life_counter"
+        function_name={
+            "python": "life_counter",
+            "js": "lifeCounter"
+        }
         # checker=None,  # checkers.float.comparison(2)
         # add_allowed_modules=[],
         # add_close_builtins=[],

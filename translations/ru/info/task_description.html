@@ -49,7 +49,7 @@
 </p>
 
 <p style="text-align: center;">
-    <img title="life" src="{{MEDIA}}life.svg" alt="life" style="max-width: 600px;width: 100%;">
+    <img title="life" src="{{MEDIA}}life.svg" alt="life" style="max-height: 160px;">
 </p>
 
 <p>
@@ -86,7 +86,15 @@
     <p>
         <strong>Примеры:</strong>
     </p>
-    <pre class="brush: python">
+    <pre class="brush: python">{% if interpreter.slug == "js-node" %}
+lifeCounter(((0, 1, 0, 0, 0, 0, 0),
+              (0, 0, 1, 0, 0, 0, 0),
+              (1, 1, 1, 0, 0, 0, 0),
+              (0, 0, 0, 0, 0, 1, 1),
+              (0, 0, 0, 0, 0, 1, 1),
+              (0, 0, 0, 0, 0, 0, 0),
+              (1, 1, 1, 0, 0, 0, 0)), 4) == 15
+{% else %}
 life_counter(((0, 1, 0, 0, 0, 0, 0),
               (0, 0, 1, 0, 0, 0, 0),
               (1, 1, 1, 0, 0, 0, 0),
@@ -94,7 +102,7 @@ life_counter(((0, 1, 0, 0, 0, 0, 0),
               (0, 0, 0, 0, 0, 1, 1),
               (0, 0, 0, 0, 0, 0, 0),
               (1, 1, 1, 0, 0, 0, 0)), 4) == 15
-    </pre>
+{% endif %}</pre>
 </div>
 
 <p class="for_info_only">
