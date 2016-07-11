@@ -135,7 +135,8 @@ requirejs(['ext_editor_io', 'jquery_190', 'raphael_210', 'snap.svg_030'],
                 }
                 var svg = new LifeSVG($expl[0]);
                 svg.prepare(checkioInput[0]);
-            }
+            },
+            multipleArguments: true
         });
         io.start();
 
