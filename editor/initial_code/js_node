@@ -1,6 +1,6 @@
 "use strict";
-function lifeCounter(marbles, step) {
-    return 0.5
+function lifeCounter(state, tick_n) {
+    return 0
 }
 
 var assert = require('assert');
